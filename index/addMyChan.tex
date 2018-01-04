@@ -1,0 +1,84 @@
+%% Заголовки
+\titleformat{\chapter}[display]
+{\normalfont\bfseries\centering}
+{\MakeUppercase{\chaptertitlename}~\thechapter} {1em}
+{\bfseries\centering\MakeUppercase{#1}}
+%
+\titleformat{\section}[hang]
+    {\centering\normalfont\large\bfseries}
+    {#1}
+    {1em}{}
+
+\titleformat{\subsection}
+    {\normalfont\large\bfseries}
+    {\arabic{subsection}.}
+    {1ex}{#1}
+
+%\titleformat{\subsubsection}
+%    {\normalfont\normalsize\bfseries}
+%    {\arabic{subsection}.\arabic{subsubsection}.}
+%    {1ex}{#1}
+
+
+\titleformat{\subsubsection}%
+{\normalfont\normalsize\bfseries}%
+{\thesubsubsection}%
+{1ex}{#1}%
+
+\titleformat{\paragraph}%
+{\normalfont\normalsize\bfseries}%
+{\theparagraph}%
+{1ex}{#1}%
+
+\titleformat{\subparagraph}[runin]%
+{\normalfont\normalsize\bfseries}%
+{\thesubparagraph}%
+{1ex}{#1}[.]%
+
+
+%\captionsetup[lstlisting]{
+%    format=tablecaption,
+%    labelsep=emdash,
+%    singlelinecheck=off,
+%    font=onehalfspacing,
+%    margin=12.5mm,
+%    position=here,
+%}
+%
+\renewcommand{\thechapter}{\arabic{chapter}}
+\renewcommand{\thesection}{}
+\renewcommand{\thesubsection}{\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\arabic{subsection}.\arabic{subsubsection}.}
+\renewcommand{\theparagraph}{\arabic{paragraph}.}
+\renewcommand{\thesubparagraph}{\arabic{paragraph}.\arabic{subparagraph}.}
+\setcounter{secnumdepth}{5}%
+%
+% Настройка вертикальных и горизонтальных отступов
+% TODO: Отступы должны быть 2-х
+\titlespacing*{\chapter}{0pt}{-2ex}{*2}
+\titlespacing*{\section}{0pt}{*2}{*4}
+\titlespacing*{\subsection}{\parindent}{*2}{*2}
+\titlespacing*{\subsubsection}{\parindent}{*1}{*1}
+\titlespacing*{\paragraph}{0pt}{*1}{*1}
+\titlespacing*{\subparagraph}{\parindent}{*1}{1ex}
+
+%%% Добавление центрирования в столбцы
+\newcolumntype{C}{>{\centering\arraybackslash}X}%
+\newcolumntype{R}{>{\raggedright\arraybackslash}X}%
+\newcolumntype{L}{>{\raggedleft\arraybackslash}X}%
+
+
+%%% Работа с SVG файлами
+  % следующий код взят из
+  % http://mirrors.ctan.org/info/svg-inkscape/InkscapePDFLaTeX.pdf
+%\newcommand{\executeiffilenewer}[3]{%
+%\ifnum\pdfstrcmp{\pdffilemoddate{#1}}%
+%{\pdffilemoddate{#2}} > 0 {\immediate\write18{#3}}\fi}
+%
+\newcommand{\includesvg}[1]{%
+%\executeiffilenewer{#1.svg}{#1.pdf}%
+{inkscape -z -D --file=#1.svg %
+--export-pdf=#1.pdf --export-latex%
+}%
+\input{#1.pdf_tex}%
+}
