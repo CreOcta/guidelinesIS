@@ -102,7 +102,7 @@ L_{cp}=p_1 \cdot L_1 + p_2 \cdot L_2 +\ldots + p_n \cdot L_n ,
 Пусть задан текст <<beep boop beer!>>, рассмотрим таблицу с частотами всех
 символов:
 
-\begin{table} [htbp]% Пример записи таблицы с номером, но без отображаемого наименования
+\begin{table} [!htbp]% Пример записи таблицы с номером, но без отображаемого наименования
   \centering
   \parbox{8cm}%
   {% чтобы лучше смотрелось, подбирается самостоятельно
@@ -131,7 +131,7 @@ L_{cp}=p_1 \cdot L_1 + p_2 \cdot L_2 +\ldots + p_n \cdot L_n ,
 приоритетов двух его потомков. Иначе говоря, равным сумме их частот.
 
 %2
-\begin{figure}[h]
+\begin{figure}[!htbp]
   \centering
   \includegraphics[width=\linewidth/3]{img8x2}
   \caption{2}\label{img:8x2}
@@ -139,7 +139,7 @@ L_{cp}=p_1 \cdot L_1 + p_2 \cdot L_2 +\ldots + p_n \cdot L_n ,
 Далее будем повторять шаги, аналогичные предыдущему:
 
 %3-6
-\begin{figure}[h]
+\begin{figure}[!htbp]
   \centering
   \includegraphics[width=\linewidth/3]{img8x3}
   \label{img:8x3}
@@ -157,7 +157,7 @@ L_{cp}=p_1 \cdot L_1 + p_2 \cdot L_2 +\ldots + p_n \cdot L_n ,
 Теперь, после объединения последних двух элементов с помощью их нового
 родителя, мы получим итоговое бинарное дерево:
 %7
-\begin{figure}[h]
+\begin{figure}[!htbp]
   \centering
   \includegraphics[scale=0.6]{img8x7}
   \caption{7}\label{img:8x7}
@@ -166,7 +166,7 @@ L_{cp}=p_1 \cdot L_1 + p_2 \cdot L_2 +\ldots + p_n \cdot L_n ,
 глубину и каждый раз, рассматривая правое поддерево, будем записывать в код
 1, а рассматривая левое поддерево — 0.
 
-\begin{figure}[h]
+\begin{figure}[!htbp]
   \centering
   \includegraphics[scale=0.6]{img8x8}
   \caption{8}\label{img:8x8}
@@ -174,7 +174,7 @@ L_{cp}=p_1 \cdot L_1 + p_2 \cdot L_2 +\ldots + p_n \cdot L_n ,
 %8
 
 В результате соответствие символов кодовым значениям получится следующим:
-\begin{table} [htbp]% Пример записи таблицы с номером, но без отображаемого наименования
+\begin{table} [!htbp]% Пример записи таблицы с номером, но без отображаемого наименования
   \centering
   \parbox{12cm}%
   {% чтобы лучше смотрелось, подбирается самостоятельно
@@ -238,8 +238,7 @@ L_{cp}=p_1 \cdot L_1 + p_2 \cdot L_2 +\ldots + p_n \cdot L_n ,
 получении нового кода генерируется новая строка, а при получении уже
 известного, строка ивлекается из словаря.
 \href{https://habrahabr.ru/post/132683/}{[ссылка]}
-\\
-\\
+
 \noindent\textbf{Кодирование}
 
 Пусть мы сжимаем последовательность <<abacabadabacabae>>.
@@ -267,14 +266,14 @@ L_{cp}=p_1 \cdot L_1 + p_2 \cdot L_2 +\ldots + p_n \cdot L_n ,
 \item И, наконец последняя строка <<e>>, за ней идет конец сообщения,
     поэтому мы просто выводим в поток <4>.
 \end{enumerate}
-\begin{figure}[h]
+\begin{figure}[!htbp]
   \centering
   \includegraphics[scale=0.8]{img8x9}
   \caption{9}\label{img:8x9}
 \end{figure}
-Итак, мы получаем закодированное сообщение <<0 1 0 2 5 0 3 9 8 6 4>>, что на
-11 бит короче.
-\\
+Мы получаем закодированное сообщение <<0 1 0 2 5 0 3 9 8 6 4>>, что на
+11-бит короче.\\
+\vspace{1cm}
 \\
 \noindent\textbf{Декодирование}
 
@@ -285,7 +284,7 @@ L_{cp}=p_1 \cdot L_1 + p_2 \cdot L_2 +\ldots + p_n \cdot L_n ,
 выше, и нам нужно его декодировать. Прежде всего, нам нужно знать начальный
 словарь, а последующие записи словаря мы можем реконструировать уже на ходу,
 поскольку они являются просто конкатенацией предыдущих записей.
-\begin{figure}[h]
+\begin{figure}[!htbp]
   \centering
   \includegraphics[scale=0.9]{img8x10}
   \caption{10}\label{img:8x10}
